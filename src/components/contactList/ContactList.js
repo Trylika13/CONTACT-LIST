@@ -17,7 +17,7 @@ export default class ContactList {
   render() {
     this.domElt.innerHTML = getTemplate();
     this.contacts.forEach((contact) =>
-      contact.render(this.domElt.querySelector(".contact-list"))
+      contact.render(this.domElt.querySelector(".contacts-table tbody"))
     );
   }
 }
