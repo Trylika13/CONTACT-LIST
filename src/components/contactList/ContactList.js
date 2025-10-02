@@ -14,10 +14,19 @@ export default class ContactList {
     this.contacts = contacts.map((contact) => new Contact(contact));
     this.render();
   }
+
+  getContactCount() {
+    return this.contacts.length;
+  }
+  renderContactCount() {
+    this.domElt.querySelector(".contact-count").innerText =
+      this.getContactCount();
+  }
   render() {
     this.domElt.innerHTML = getTemplate();
     this.contacts.forEach((contact) =>
       contact.render(this.domElt.querySelector(".contacts-table tbody"))
     );
+    this.renderContactCount();
   }
 }
