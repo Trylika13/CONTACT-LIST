@@ -16,13 +16,11 @@ export default class ContactList {
     this.render();
   }
 
-  getContactCount() {
-    return this.contacts.length;
-  }
   renderContactCount() {
     this.domElt.querySelector(".contact-count").innerText =
-      this.getContactCount();
+      this.contacts.length;
   }
+
   render() {
     this.domElt.innerHTML = getTemplate();
     this.listDomElt = this.domElt.querySelector(".contacts-table tbody");
