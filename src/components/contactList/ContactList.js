@@ -45,15 +45,42 @@ export default class ContactList {
     this.renderContactCount();
   }
 
+  async deleteOneById(id) {
+    // Supprimer de la DB
+    const response = await DB.delete(id);
+    // Supprimer des Contacts
+    this.contacts.splice(
+      this.contacts.findIndex((contact) => contact.id === id),
+      1
+    );
+    // Supprimer du DOM
+    //Fais dans le iniEvents dans contact.js
+
+    // relancer le rendercount
+    this.renderContactCount();
+  }
+
   initEvents() {
     this.domElt.querySelector(".new-contact").addEventListener("click", () => {
-      const firstName = this.domElt.querySelector("[name=firstName]").value;
-      const lastName = this.domElt.querySelector("[name=lastName]").value;
-      const email = this.domElt.querySelector("[name=email]").value;
+      // On récupère les inputs une seule fois
+      const firstNameInput = this.domElt.querySelector("[name=firstName]");
+      const lastNameInput = this.domElt.querySelector("[name=lastName]");
+      const emailInput = this.domElt.querySelector("[name=email]");
 
-      const newContact = { firstName, lastName, email };
+      // On crée un objet avec leurs valeurs
+      const newContact = {
+        firstName: firstNameInput.value,
+        lastName: lastNameInput.value,
+        email: emailInput.value,
+      };
 
+      // On ajoute le contact
       this.addContact(newContact);
+
+      // On vide les champs après ajout
+      firstNameInput.value = "";
+      lastNameInput.value = "";
+      emailInput.value = "";
     });
   }
 }
