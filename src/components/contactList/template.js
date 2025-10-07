@@ -1,9 +1,6 @@
 export default function getTemplate(contactList) {
   return `
-    <div
-      id="app"
-      class="w-full bg-white rounded-lg shadow-lg flex flex-wrap overflow-hidden"
-    >
+
       <!-- Aside gauche pour le formulaire -->
       <aside class="w-1/3 bg-gray-200 p-6 pb-12">
         <h2 class="text-xl font-bold mb-4">Add a Contact</h2>

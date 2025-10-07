@@ -52,7 +52,7 @@ export default class ContactList {
       1
     );
     // Supprimer du DOM
-    //Fais dans le iniEvents dans contact.js
+    //Fais dans le initEvents dans contact.js
 
     // relancer le rendercount
     this.renderContactCount();
